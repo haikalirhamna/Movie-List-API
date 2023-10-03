@@ -40,14 +40,14 @@ export const getCountries = async() => {
     }
 }
 
-// async function getData() {
-//     try {
-//         const result = await axios.get(baseUrl + 'api=' + apiKey);
-//         console.log(result);
-//     } catch (error) {
-//         console.error(error);
-//     }
-// }
+export const getData = async(e) => {
+    try {
+        const result = await axios.get(`${baseUrl}/search/keyword?query=${e}&api_key=${apiKey}`);
+        return result.data.results;
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 // getData();
 

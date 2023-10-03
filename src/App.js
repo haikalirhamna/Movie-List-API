@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Genre from './containers/Genre/Genre';
 import Home from './containers/Home/Home';
@@ -7,6 +7,8 @@ import TV from './containers/TV Series/TV';
 import NotFound from './containers/Alert/NotFound';
 
 function App() {
+  const [input, setInput] = useState();
+  
   return (
     <Router>
       <Routes>

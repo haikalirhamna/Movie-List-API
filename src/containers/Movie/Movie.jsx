@@ -1,5 +1,5 @@
 const Movie = () =>{
-  return <p>Ini Movie</p>
+  return <p></p>
 }
 
 export default Movie;

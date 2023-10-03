@@ -14,6 +14,7 @@ const Genre = () => {
     getGenreMovies()
         .then((result) => {
             setMovieList(result)
+            setIsLoading(false)
         })
         .catch((error) => {
             console.error('Error fetching data:', error);
@@ -22,14 +23,15 @@ const Genre = () => {
     getGenreTvSeries()
         .then((result) => {
             setTvSeriesList(result)
+            setIsLoading(false)
         })
         .catch((error) => {
             console.error('Error fetching data:', error);
         });
-  }, []);
+  }, [isLoading]);
 
   if (isLoading) {
-    <Loading/>
+    return <Loading/>
   }
 
   return (

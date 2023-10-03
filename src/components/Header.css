@@ -21,6 +21,7 @@
 nav {
     display: flex;
     column-gap: 12px;
+    font-size: 20px;
 }
 
 nav ul {
@@ -72,3 +73,21 @@ nav ul li:hover::before {
     width: 100%;
 }
 
+.show {
+    width: 200px !important;
+    border-radius: 10px;
+    padding: 0 8px;
+    animation: show 1.5 ease-in .2s;
+}
+
+@keyframes show {
+    0% {
+        display: none;
+        width: 0;
+    }
+
+    100% {
+        display: block;
+        width: 100%;
+    }
+}

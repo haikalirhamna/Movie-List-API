@@ -8,7 +8,7 @@ const Hero = (props) => {
 
     return (
         <div className='hero__wrapper'>
-            <h3 className='title'>{Movie.title}</h3>
+            <h3>{Movie.title}</h3>
             <div className='movie_details'>
                 <p className='vote_average'><span><FontAwesomeIcon icon={faStar} /></span>{Movie.vote_average}</p>
                 <p className='release_date'>{Movie.release_date}</p>
@@ -16,6 +16,7 @@ const Hero = (props) => {
             <p className='overview'>{Movie.overview}</p>
             <div className='btn-watch'>
                 <a href='/#'><span><FontAwesomeIcon icon={faPlay} size="xl" /></span>Watch</a>
+                <a href='/#'>Details</a>
             </div>
         </div>
     )

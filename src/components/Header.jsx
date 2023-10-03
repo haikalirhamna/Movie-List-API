@@ -13,7 +13,6 @@ const Header = () => {
                 <ul>
                     <li><NavLink to="/" activeClassName="active">New Movie</NavLink></li>
                     <li><NavLink to="/genre" activeClassName="active">Genre</NavLink></li>
-                    <li><NavLink to="/country" activeClassName="active">Country</NavLink></li>
                     <li><NavLink to="/movie" activeClassName="active">Movie</NavLink></li>
                     <li><NavLink to="/tv-series" activeClassName="active">TV Series</NavLink></li>
                 </ul>

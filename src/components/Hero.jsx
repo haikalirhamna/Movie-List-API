@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faPlay } from '@fortawesome/free-solid-svg-icons'
 import './Hero.css'
 
 const Hero = (props) => {
@@ -14,6 +14,9 @@ const Hero = (props) => {
                 <p className='release_date'>{Movie.release_date}</p>
             </div>
             <p className='overview'>{Movie.overview}</p>
+            <div className='btn-watch'>
+                <a href='/#'><span><FontAwesomeIcon icon={faPlay} size="xl" /></span>Watch</a>
+            </div>
         </div>
     )
 }

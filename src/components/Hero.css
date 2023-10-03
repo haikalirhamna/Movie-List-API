@@ -23,7 +23,7 @@
     margin-bottom: 16px;
 }
 
-.hero__wrapper .movie_details span {
+.hero__wrapper .movie_details span, .btn-watch span {
     color: gold;
     margin-right: .5rem;
 }
@@ -36,4 +36,9 @@
     text-wrap: balance;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-bottom: 16px;
+}
+
+.btn-watch a {
+    border: 2px solid white;
 }

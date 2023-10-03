@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
+import Loading from "../../components/Loading";
 import { getGenreMovies, getGenreTvSeries } from "../../API/data";
 
 import "./Genre.css"
@@ -7,6 +8,7 @@ import "./Genre.css"
 const Genre = () => {
   const [movieList, setMovieList] = useState([]);
   const [tvSeriesList, setTvSeriesList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getGenreMovies()
@@ -26,15 +28,16 @@ const Genre = () => {
         });
   }, []);
 
-  console.log(movieList);
-  console.log(tvSeriesList);
+  if (isLoading) {
+    <Loading/>
+  }
 
   return (
     <div className="container background">
       <Header />
       <div className="title">
         <h2>Genre Lists</h2>
-        <div>
+        <div className="genres__wrapper">
           <h2>Movie</h2>
           <ul>
             {movieList.map((movie) => (
@@ -42,7 +45,7 @@ const Genre = () => {
             ))}
           </ul>
         </div>
-        <div>
+        <div className="genres__wrapper">
           <h2>TV Series</h2>
           <ul>
             {tvSeriesList.map((series) => (

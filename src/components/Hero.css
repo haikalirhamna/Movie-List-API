@@ -1,0 +1,39 @@
+.hero__wrapper {
+    margin: 94px 32px;
+    width: 50%;
+    height: 260px;
+    max-height: 100%;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.hero__wrapper h3 {
+    height: 2em;
+    font-size: 2.5rem;
+    line-height: 1em;
+    margin-bottom: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hero__wrapper .movie_details {
+    display: flex;
+    column-gap: 1rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.hero__wrapper .movie_details span {
+    color: gold;
+    margin-right: .5rem;
+}
+
+.overview {
+    width: 420px;
+    height: 83px;
+    font-size: 16px;
+    line-height: 16px;
+    text-wrap: balance;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

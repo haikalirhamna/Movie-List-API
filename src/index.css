@@ -1,6 +1,12 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -containerle-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -11,3 +17,58 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Untuk mode mobile (hingga 640px) */
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Untuk mode sm (640px) */
+@media screen and (min-width: 641px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+/* Untuk mode md (768px) */
+@media screen and (min-width: 769px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+/* Untuk mode lg (1024px) */
+@media screen and (min-width: 1025px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+/* Untuk mode xl (1280px) */
+@media screen and (min-width: 1281px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* Untuk mode 2xl (1536px) */
+@media screen and (min-width: 1537px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+/* Untuk mode 4xl (1920px) */
+/* @media screen and (min-width: 1920px) {
+  .container {
+    max-width: 1920px;
+  }
+} */

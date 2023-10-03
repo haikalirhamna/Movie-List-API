@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Country from './containers/Country/Country';
+import Genre from './containers/Genre/Genre';
+import Home from './containers/Home/Home';
+import Movie from './containers/Movie/Movie';
+import TV from './containers/TV Series/TV';
+import NotFound from './containers/Alert/NotFound';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/genre" element={<Genre />}/>
+        <Route path="/country" element={<Country />}/>
+        <Route path="/movie" element={<Movie />}/>
+        <Route path="/tv-series" element={<TV />}/>
+        <Route path="*" element={<NotFound />}/>
+      </Routes>
+    </Router>
   );
 }
 

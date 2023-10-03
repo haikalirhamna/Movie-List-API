@@ -1,0 +1,29 @@
+.background {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.title {
+  margin: 0 16px;
+}
+
+.title h2, .title li {
+  color: white;
+}
+
+.title ul li {
+  list-style: none;
+  width: auto;
+  height: auto;
+}
+
+li:hover {
+  color: #F9C013;
+}
+
+.title {
+  display: flex;
+  flex-wrap: wrap;
+  /* column-gap: 50%; */
+}

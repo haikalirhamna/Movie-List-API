@@ -39,12 +39,14 @@ const Home = () => {
     }
 
     return (
-        <div className="container background__image" style={{ backgroundImage: `url(${ImageUrl}/${data.backdrop_path})` }} >
-            <div className="content">
-                <Header/>
-                <Hero movieID={data}/>
+        <div className="background__image" style={{ backgroundImage: `url(${ImageUrl}/${data.backdrop_path})` }} >
+            <div className="container">
+                <div className="content">
+                    <Header/>
+                    <Hero movieID={data}/>
+                    <Carousel movieLists={popularMoviesList} sendDataToParent={handleDataFromChild} />
+                </div>
             </div>
-            <Carousel movieLists={popularMoviesList} sendDataToParent={handleDataFromChild} />
         </div>
     )
 }

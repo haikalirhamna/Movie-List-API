@@ -3,13 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { NavLink, useNavigate } from 'react-router-dom';
 import { getData } from '../API/data';
+import { useMovieList } from '../MovieListContext';
 
 import './Header.css';
 
 const Header = (props) => {
     const inputRef = useRef(null);
     const [searchValue, setSearchValue] = useState();
-    const [movieList, setMovieList] = useState([]);
+    const { setMovieList } = useMovieList();
     const navigate = useNavigate();
 
     const onHandlerClickSearch = () => {

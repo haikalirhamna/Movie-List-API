@@ -43,7 +43,9 @@ const TV = () => {
                                 <CardWithHover 
                                 key={v.id} 
                                 id={v.id}
-                                imageCard={`${ImageUrl}/${v.poster_path}`}/>
+                                imageCard={`${ImageUrl}/${v.poster_path}`}
+                                title={v.original_name}
+                                />
                             </React.Fragment>
                         ))
                     }

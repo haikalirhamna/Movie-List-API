@@ -6,7 +6,7 @@ import "./CardWithHover.css";
 
 function CardWithHover(props) {
   const navigate = useNavigate()
-  // const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   return (
     <div className="card2" onClick={() => {

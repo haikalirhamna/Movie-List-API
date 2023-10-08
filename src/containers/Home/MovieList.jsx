@@ -15,7 +15,7 @@ const MovieList = () => {
   useEffect(() => {
       setMovies(movieList)
       setIsLoading(false)
-  }, [Movies]);
+  }, []);
 
   if (isLoading) {
     return <Loading/>
@@ -28,7 +28,7 @@ const MovieList = () => {
         <div className='wrapper__card'>
           {Movies.map((v) => (
             <React.Fragment>
-              <CardWithHover key={v.id} imageCard={`${ImageUrl}/${v.poster_path}`} title={v}/>
+              <CardWithHover key={v.id} imageCard={`${ImageUrl}/${v.poster_path}`} title={v.original_title || v.original_name}/>
             </React.Fragment>
           ))}
         </div>

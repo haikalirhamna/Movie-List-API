@@ -5,7 +5,7 @@ import {useMovieList} from '../MovieListContext'
 
 import "./BackButton.css"
 
-const BackButton = () => {
+const BackButton = (props) => {
   const {setMovieList} = useMovieList();
 
   const goBack = () => {

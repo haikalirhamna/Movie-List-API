@@ -77,17 +77,15 @@ nav ul li:hover::before {
     width: 200px !important;
     border-radius: 10px;
     padding: 0 8px;
-    animation: show 1.5 ease-in .2s;
+    animation: show 2.5 ease-in-out;
 }
 
 @keyframes show {
     0% {
-        display: none;
         width: 0;
     }
 
     100% {
-        display: block;
         width: 100%;
     }
 }

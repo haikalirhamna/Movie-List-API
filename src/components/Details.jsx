@@ -1,6 +1,6 @@
 import React from "react";
 
-const MovieList = (props) => {
+const Details = (props) => {
 
   return (
     <React.Fragment>
@@ -9,4 +9,4 @@ const MovieList = (props) => {
   )
 }
 
-export default MovieList;
+export default Details;

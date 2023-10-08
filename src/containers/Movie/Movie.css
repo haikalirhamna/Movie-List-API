@@ -1,0 +1,6 @@
+.wrapper__card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px
+}

@@ -1,74 +1,56 @@
 import React, {useEffect, useState} from 'react';
 import Header from '../../components/Header';
 import Loading from '../../components/Loading';
-import MovieList from "../../components/MovieList";
-import { getMoviesList } from "../../API/data";
-import { useMovieList } from '../../MovieListContext';
-import axios from 'axios';
+import CardWithHover from "../../components/CardWithHover";
+import {movieDetails} from "../../API/data";
+import {useMovieList} from '../../MovieListContext';
+
+import "./Movie.css"
 
 const Movie = () => {
-  const baseURL = process.env.REACT_APP_API_URL;
-  const { movieList } = useMovieList();
-  const [isLoading, setIsLoading] = useState(true);
-  const [Movies, setMovies] = useState([]);
+    const ImageUrl = process.env.REACT_APP_API_IMAGE_URL;
+    const {movieList} = useMovieList();
+    const [isLoading, setIsLoading] = useState(true);
+    const [Movies, setMovies] = useState([]);
 
-  useEffect(() => {
-    getMoviesList()
-        .then((result) => {
-            setMovies(result);
-            setIsLoading(false);
-        })
-        .catch((error) => {
-            console.error('Error fetching data:', error);
-            setIsLoading(false);
-        });
-  }, []);
+    useEffect(() => {
+        if (movieList.length > 0) {
+            setMovies(movieList)
+            console.log(movieList);
+            setIsLoading(false)
+        } else {
+            movieDetails().then((result) => {
+                setMovies(result)
+                setIsLoading(false)
+            })
+        }
+    }, [Movies]);
 
-  const getMovie = async(id) => {
-    try {
-      const data = await axios.get(`${baseURL}/movie/${id}`)
-      console.log(data);
-    } catch (error) {
-      console.error('Error get Data:', error)
+    if (isLoading) {
+        return <Loading/>
     }
-  }
 
-  // Promise.all([getMoviesList, getMovie]).then((value) => {
-  //   console.log(value);
-  // })
-
-  if (isLoading) {
-    return <Loading/>
-  }
-
-  if (movieList) {
     return (
-      <div>
-        <Header />
-        <div>
-          {movieList.map((v) => {
-            if (v.media_type === "movie") {
-              return <MovieList key={v.id} movieName={v.title} />;
-            } else if (v.media_type === "tv") {
-              return <MovieList key={v.id} movieName={v.name} />;
-            }
-            return null;
-          })}
+        <div className='background'>
+            <div className='container'>
+                <Header/>
+                <div className='wrapper__card'>
+                    {
+                        Movies.map((v) => (
+                          <React.Fragment>
+                                <CardWithHover
+                                    key={v.id}
+                                    id={v.id}
+                                    imageCard={`${ImageUrl}/${v.poster_path}`}
+                                    title={v.original_title}
+                                    />
+                            </React.Fragment>
+                        ))
+                    }
+                </div>
+            </div>
         </div>
-      </div>
     );
-  } else {
-    return (
-      <div>
-        <Header/>
-        <div>
-          {Movies.map((i) => (
-            <MovieList key={i.id} movieName={i.id}/>
-          ))}
-        </div>
-      </div>
-    )
-  }
 
 }
 

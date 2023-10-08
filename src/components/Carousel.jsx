@@ -22,7 +22,6 @@ function Carousel(props) {
         <div className="wrapper">
             <Swiper
                 modules={[Pagination]}
-                spaceBetween={80}
                 slidesPerView={7}
                 loop={true}
                 pagination={{

@@ -17,7 +17,7 @@ const Header = (props) => {
         if (searchValue && searchValue.trim().length > 0) {
             getData(searchValue).then((result) => {
                 setMovieList(result);
-                navigate('/movie');
+                navigate('/list');
             })
         } else {
             if (inputRef.current) {
@@ -33,10 +33,10 @@ const Header = (props) => {
             </div>
             <nav>
                 <ul>
-                    <li><NavLink to="/" activeClassName="active">New Movie</NavLink></li>
-                    <li><NavLink to="/genre" activeClassName="active">Genre</NavLink></li>
-                    <li><NavLink to="/movie" activeClassName="active">Movie</NavLink></li>
-                    <li><NavLink to="/tv-series" activeClassName="active">TV Series</NavLink></li>
+                    <li><NavLink to="/" activeClassName="active" onClick={() => {setMovieList(0)}}>New Movie</NavLink></li>
+                    <li><NavLink to="/genre" activeClassName="active" onClick={() => {setMovieList(0)}}>Genre</NavLink></li>
+                    <li><NavLink to="/movie" activeClassName="active" onClick={() => {setMovieList(0)}}>Movie</NavLink></li>
+                    <li><NavLink to="/tv-series" activeClassName="active" onClick={() => {setMovieList(0)}}>TV Series</NavLink></li>
                 </ul>
                 <div className='search' >
                     <input type="text" ref={inputRef} value={searchValue}

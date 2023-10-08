@@ -44,9 +44,13 @@
   align-items: center;
 }
 
+.swiper-slide-active {
+  margin-right: 26px !important;
+}
+
 .swiper-slide-active .card {
-  width: 180px;
-  height: 270px;
+  width: 225px;
+  height: 325px;
 }
 
 .btn {

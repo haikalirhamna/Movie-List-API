@@ -38,6 +38,10 @@ code {
   /* background: linear-gradient(to bottom, #1a1a1a, #000000); */
 }
 
+button:hover, .card:hover, .svg-inline--fa:hover {
+  cursor: pointer;
+} 
+
 /* Untuk mode sm (640px) */
 @media screen and (min-width: 641px) {
   .container {

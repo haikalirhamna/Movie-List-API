@@ -4,7 +4,7 @@
   height: 300px;
   overflow: hidden;
   border-radius: 10px;
-  transition: height 1s ease-in-out;
+  transition: height 5ms ease-in-out;
 }
 
 .card2 img {
@@ -35,7 +35,7 @@
 }
 
 .hover__title:hover p {
-  animation: fadeIn 2s linear 5ms forwards;
+  animation: fadeIn .5s linear 5ms forwards;
 }
 
 .card2:hover .hover__title {

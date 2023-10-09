@@ -7,7 +7,7 @@ import {useMovieList} from '../../MovieListContext';
 
 import "./Movie.css"
 
-const Movie = () => {
+const Movie = ({onClick}) => {
     const ImageUrl = process.env.REACT_APP_API_IMAGE_URL;
     const {movieList} = useMovieList();
     const [isLoading, setIsLoading] = useState(true);
@@ -43,6 +43,7 @@ const Movie = () => {
                                     id={v.id}
                                     imageCard={`${ImageUrl}/${v.poster_path}`}
                                     title={v.original_title}
+                                    onClickCard={onClick}
                                     />
                             </React.Fragment>
                         ))

@@ -36,6 +36,7 @@
 
 .overview {
     width: 420px;
+    max-height: 300px;
     font-size: 16px;
     line-height: 1.5;
     overflow: hidden;

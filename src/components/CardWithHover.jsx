@@ -8,11 +8,13 @@ function CardWithHover(props) {
   const navigate = useNavigate()
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
+  const handleCardClick = () => {
+    props.onClickCard(props.id);
+    navigate('/details');
+  }
+
   return (
-    <div className="card2" onClick={() => {
-      console.log(props.id);
-      // navigate('/details')
-    }}>
+    <div className="card2" onClick={handleCardClick}>
       <img src={props.imageCard} alt={"imageMovies"}/>
       <div className="hover__title">
         <p>{props.title}</p>

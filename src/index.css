@@ -23,6 +23,11 @@ code {
     monospace;
 }
 
+#root {
+  height: 100%;
+  width: 100%;
+}
+
 
 /* Untuk mode mobile (hingga 640px) */
 .container {

@@ -5,7 +5,7 @@ import CardWithHover from "../../components/CardWithHover";
 import {tvDetails} from "../../API/data";
 import {useMovieList} from '../../MovieListContext';
 
-const TV = () => {
+const TV = ({onClick}) => {
     const ImageUrl = process.env.REACT_APP_API_IMAGE_URL;
     const {movieList} = useMovieList();
     const [isLoading, setIsLoading] = useState(true);
@@ -45,6 +45,7 @@ const TV = () => {
                                 id={v.id}
                                 imageCard={`${ImageUrl}/${v.poster_path}`}
                                 title={v.original_name}
+                                onClickCard={onClick}
                                 />
                             </React.Fragment>
                         ))

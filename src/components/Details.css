@@ -1,0 +1,34 @@
+.background {
+  min-height: 100%;
+}
+
+.wrapper__header {
+  width: 100%;
+  display: flex;
+  column-gap: 2rem;
+  text-align: start;
+}
+
+.wrapper__header img {
+  width: 500px;
+  height: 700px;
+  border: none;
+  border-radius: 25px;
+}
+
+.wrapper__header .title_movie {
+  font-size: 50px;
+  font-weight: 700;
+  text-align: start;
+}
+
+.wrapper__header .rating {
+  display: flex;
+  column-gap: 16px;
+  font-size: 24px;
+}
+
+.rating span {
+  color: gold;
+  margin-right: .5rem;
+}

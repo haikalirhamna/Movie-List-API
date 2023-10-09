@@ -30,6 +30,8 @@ const TV = ({onClick}) => {
         }
     }, []);
 
+    console.log(Movies);
+
     if (isLoading) {
         return <Loading/>
     }
@@ -39,16 +41,16 @@ const TV = ({onClick}) => {
             <div className='container'>
                 <Header/>
                 <div className='wrapper__card'>
-                    {!sekeletonLoading ? (
+                {!sekeletonLoading ? (
                         Movies.map((v) => (
                             <React.Fragment key={v.id}>
                                 {
-                                    v.poster_path !== null
+                                    v !== 'Not Found'
                                         ? (
                                             <CardWithHover
                                                 id={v.id}
                                                 imageCard={`${ImageUrl}/${v.poster_path}`}
-                                                title={v.original_title}
+                                                title={v.original_name}
                                                 onClickCard={onClick}/>
                                         )
                                         : (

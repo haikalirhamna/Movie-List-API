@@ -19,16 +19,20 @@ export const SwiperButton = (props) => {
             newData = (childData - 1) % 20;
         }
       
-        setChildData(newData);
-        props.changeDataHandler(newData);
+        setTimeout(() => {
+            setChildData(newData);
+            props.changeDataHandler(newData);
+          }, 500);
     };
       
 
     const handleNextClick = () => {
         swiper.slideNext(); 
         const newData = (childData + 1) % 20;
-        setChildData(newData);
-        props.changeDataHandler(newData);
+        setTimeout(() => {
+            setChildData(newData);
+            props.changeDataHandler(newData);
+          }, 500);
     };
 
     return (

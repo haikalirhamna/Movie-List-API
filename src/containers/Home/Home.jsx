@@ -11,6 +11,7 @@ const Home = () => {
     const [popularMoviesList, setPopularMoviesList] = useState(0);
     const [data, setData] = useState(popularMoviesList);
     const [isLoading, setIsLoading] = useState(true);
+    const [sekeletonLoading, setsekeletonLoading] = useState(true);
     const ImageUrl = process.env.REACT_APP_API_IMAGE_URL;
 
     useEffect(() => {
@@ -19,6 +20,9 @@ const Home = () => {
                 setPopularMoviesList(result);
                 setData(result[0]);
                 setIsLoading(false);
+                setTimeout(() => {
+                    setsekeletonLoading(false);
+                  }, 2000);
             })
             .catch((error) => {
                 console.error('Error fetching data:', error);
@@ -44,7 +48,7 @@ const Home = () => {
                 <div className="content">
                     <Header/>
                     <Hero movieID={data}/>
-                    <Carousel movieLists={popularMoviesList} sendDataToParent={handleDataFromChild} />
+                    <Carousel movieLists={popularMoviesList} sendDataToParent={handleDataFromChild} Loading={sekeletonLoading} />
                 </div>
             </div>
         </div>

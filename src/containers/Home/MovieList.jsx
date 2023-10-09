@@ -10,11 +10,15 @@ const MovieList = () => {
   const ImageUrl = process.env.REACT_APP_API_IMAGE_URL;
   const { movieList } = useMovieList();
   const [isLoading, setIsLoading] = useState(true);
+  const [sekeletonLoading, setsekeletonLoading] = useState(true);
   const [Movies, setMovies] = useState([]);
 
   useEffect(() => {
       setMovies(movieList)
       setIsLoading(false)
+      setTimeout(() => {
+        setsekeletonLoading(false);
+      }, 2000);
   }, []);
 
   if (isLoading) {
@@ -24,17 +28,34 @@ const MovieList = () => {
   return (
     <div className='background'>
       <div className='container'>
-        <BackButton/>
+        <BackButton />
         <div className='wrapper__card'>
-          {Movies.map((v) => (
-            <React.Fragment>
-              <CardWithHover key={v.id} imageCard={`${ImageUrl}/${v.poster_path}`} title={v.original_title || v.original_name}/>
-            </React.Fragment>
-          ))}
+          {!sekeletonLoading ? (
+            Movies.map((v) => (
+              <React.Fragment key={v.id}>
+                {v.poster_path !== null ? (
+                  <CardWithHover
+                    imageCard={`${ImageUrl}/${v.poster_path}`}
+                    title={v.title || v.name}
+                  />
+                ) : (
+                  <div className='notFound'>
+                    <p>Not found</p>
+                  </div>
+                )}
+              </React.Fragment>
+            ))
+          ) : (
+            Movies.map(() => (
+              <React.Fragment>
+                  <div className='sekeleton'></div>
+              </React.Fragment>
+          ))
+          )}
         </div>
       </div>
     </div>
-  );
+  );  
 
 }
 

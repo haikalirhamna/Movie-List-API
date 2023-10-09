@@ -9,24 +9,26 @@ const TV = ({onClick}) => {
     const ImageUrl = process.env.REACT_APP_API_IMAGE_URL;
     const {movieList} = useMovieList();
     const [isLoading, setIsLoading] = useState(true);
+    const [sekeletonLoading, setsekeletonLoading] = useState(true);
     const [Movies, setMovies] = useState([]);
-
-    // console.log(movieList);
 
     useEffect(() => {
         if (movieList.length > 0) {
             setMovies(movieList)
             setIsLoading(false)
+            setTimeout(() => {
+                setsekeletonLoading(false);
+              }, 2000);
         } else {
             tvDetails().then((result) => {
-                // console.log(result);
                 setMovies(result)
                 setIsLoading(false)
+                setTimeout(() => {
+                    setsekeletonLoading(false);
+                  }, 2000);
             })
         }
-    }, [Movies]);
-
-    // console.log(Movies);
+    }, []);
 
     if (isLoading) {
         return <Loading/>
@@ -37,19 +39,33 @@ const TV = ({onClick}) => {
             <div className='container'>
                 <Header/>
                 <div className='wrapper__card'>
-                    {
+                    {!sekeletonLoading ? (
                         Movies.map((v) => (
-                            <React.Fragment>
-                                <CardWithHover 
-                                key={v.id} 
-                                id={v.id}
-                                imageCard={`${ImageUrl}/${v.poster_path}`}
-                                title={v.original_name}
-                                onClickCard={onClick}
-                                />
+                            <React.Fragment key={v.id}>
+                                {
+                                    v.poster_path !== null
+                                        ? (
+                                            <CardWithHover
+                                                id={v.id}
+                                                imageCard={`${ImageUrl}/${v.poster_path}`}
+                                                title={v.original_title}
+                                                onClickCard={onClick}/>
+                                        )
+                                        : (
+                                            <div className='notFound'>
+                                                <p>NOT FOUND</p>
+                                            </div>
+                                        )
+                                }
                             </React.Fragment>
                         ))
-                    }
+                    ) : (
+                        Movies.map(() => (
+                            <React.Fragment>
+                                <div className='sekeleton'></div>
+                            </React.Fragment>
+                        ))
+                    )}
                 </div>
             </div>
         </div>

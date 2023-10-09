@@ -31,13 +31,21 @@ function Carousel(props) {
                 centeredSlides={true}
                 scrollbar={{ draggable: true }}
             >
-                {Movies.map((movie) => (
-                    <SwiperSlide key={movie.id}>
-                        <Card 
-                            imageCard={`${ImageUrl}/${movie.poster_path}`}
-                        />
-                    </SwiperSlide>
-                ))}
+                {!props.Loading ? (
+                    Movies.map((movie) => (
+                        <SwiperSlide key={movie.id}>
+                            <Card 
+                                imageCard={`${ImageUrl}/${movie.poster_path}`}
+                            />
+                        </SwiperSlide>
+                    ))
+                ) : (
+                    Movies.map((movie) => (
+                        <SwiperSlide key={movie.id} style={{ marginRight: 0}}>
+                            <div className='sekeleton'></div>
+                        </SwiperSlide>
+                    ))
+                )}
                 <SwiperButton changeDataHandler={onChangeHandler}/>
             </Swiper>
         </div>

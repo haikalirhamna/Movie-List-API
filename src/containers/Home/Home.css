@@ -45,7 +45,7 @@
 }
 
 .swiper-slide-active {
-  margin-right: 26px !important;
+  margin-right: 26px;
 }
 
 .swiper-slide-active .card {
@@ -55,4 +55,28 @@
 
 .btn {
   margin: .3rem 1rem;
+}
+
+.sekeleton {
+  width: 200px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite linear;
+}
+
+@keyframes loading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
